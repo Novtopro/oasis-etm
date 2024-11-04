@@ -11,7 +11,6 @@ module Oasis
 
       xml do
         root "tbody"
-        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
         namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         map_attribute "valign", to: :valign

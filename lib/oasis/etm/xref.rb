@@ -12,7 +12,6 @@ module Oasis
 
       xml do
         root "xref"
-        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
         namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         map_content to: :content

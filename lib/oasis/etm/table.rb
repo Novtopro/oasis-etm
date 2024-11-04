@@ -15,7 +15,6 @@ module Oasis
 
       xml do
         root "table", ordered: true
-        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
         namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         # Frame mappings

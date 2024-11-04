@@ -20,7 +20,6 @@ module Oasis
 
       xml do
         root "tgroup", ordered: true
-        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
         namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         # Attribute mappings
