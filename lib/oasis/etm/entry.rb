@@ -1,3 +1,6 @@
+require_relative "xref"
+require_relative "bold"
+
 module Oasis
   module Etm
     class Entry < Lutaml::Model::Serializable
@@ -6,8 +9,8 @@ module Oasis
       attribute :namest, :string
       attribute :nameend, :string
       attribute :morerows, :integer
-      attribute :colsep, :integer, values: [0, 1]
-      attribute :rowsep, :integer, values: [0, 1]
+      attribute :colsep, :string, values: ["0", "1", "yes", "no"]
+      attribute :rowsep, :string, values: ["0", "1", "yes", "no"]
       attribute :align, :string, values: %w[left right center justify char]
       attribute :char, :string
       attribute :charoff, :string
@@ -15,10 +18,13 @@ module Oasis
 
       # Content
       attribute :content, :string, raw: true
+      attribute :xref, Xref, collection: true
+      attribute :bold, Bold, collection: true
 
       xml do
         root "entry"
         namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
+        namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         # Attribute mappings
         map_attribute "colname", to: :colname
@@ -34,6 +40,10 @@ module Oasis
 
         # Content mapping
         map_content to: :content
+
+        # Child elements
+        map_element "xref", to: :xref
+        map_element "bold", to: :bold
       end
     end
   end

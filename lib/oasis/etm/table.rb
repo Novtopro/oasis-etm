@@ -5,9 +5,9 @@ module Oasis
     class Table < Lutaml::Model::Serializable
       # Table attributes
       attribute :frame, :string, values: %w[top bottom topbot all sides none]
-      attribute :colsep, :integer, values: [0, 1]
-      attribute :rowsep, :integer, values: [0, 1]
-      attribute :pgwide, :integer, values: [0, 1]
+      attribute :colsep, :string, values: ["0", "1", "yes", "no"]
+      attribute :rowsep, :string, values: ["0", "1", "yes", "no"]
+      attribute :pgwide, :string, values: ["0", "1", "yes", "no"]
 
       # Table content
       attribute :title, :string
@@ -16,6 +16,7 @@ module Oasis
       xml do
         root "table", ordered: true
         namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
+        namespace "-//OASIS//DTD XML Exchange Table Model 19990315//EN", "oasis"
 
         # Frame mappings
         map_attribute "frame", to: :frame
