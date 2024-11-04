@@ -18,6 +18,7 @@ module Oasis
 
       xml do
         root "entry"
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         # Attribute mappings
         map_attribute "colname", to: :colname

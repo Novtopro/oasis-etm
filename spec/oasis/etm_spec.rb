@@ -3,79 +3,73 @@
 require "pathname"
 
 RSpec.describe Oasis::Etm do
-  fixtures_dir = Pathname.new(__dir__).join("../fixtures")
+  context "with isosts/isosts_tables.cals.01.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.01.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-  describe "XML round-trip conversion" do
-    describe "native XML" do
-      xml_files = Dir[fixtures_dir.join("native", "*.xml")]
+  context "with isosts/isosts_tables.cals.02.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.02.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-      xml_files.each do |file_path|
-        context "with file #{Pathname.new(file_path).relative_path_from(fixtures_dir)}" do
-          let(:xml_string) { File.read(file_path) }
+  context "with isosts/isosts_tables.cals.03.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.03.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-          it "performs lossless round-trip conversion" do
-            parsed = Oasis::Etm::Table.from_xml(xml_string)
-            generated = parsed.to_xml(
-              pretty: true,
-              declaration: true,
-              encoding: "utf-8",
-            )
+  context "with isosts/isosts_tables.cals.04.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.04.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-            cleaned_xml_string = xml_string
-              .gsub(/^<\?xml.*\n/, "")
+  context "with isosts/isosts_tables.cals.05.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.05.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-            expect(generated).to be_analogous_with(cleaned_xml_string)
-          end
-        end
-      end
-    end
+  context "with isosts/isosts_tables.cals.06.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.06.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-    describe "namespaced XML (ISOSTS)" do
-      xml_files = Dir[fixtures_dir.join("isosts", "*.xml")]
+  context "with isosts/isosts_tables.cals.07.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.07.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-      xml_files.each do |file_path|
-        context "with file #{Pathname.new(file_path).relative_path_from(fixtures_dir)}" do
-          let(:xml_string) { File.read(file_path) }
+  context "with isosts/isosts_tables.cals.08.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.08.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-          it "performs lossless round-trip conversion" do
-            parsed = Oasis::Etm::Table.from_xml(xml_string)
-            generated = parsed.to_xml(
-              pretty: true,
-              declaration: true,
-              encoding: "utf-8",
-            )
+  context "with isosts/isosts_tables.cals.09.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.09.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-            cleaned_xml_string = xml_string
-              .gsub(/^<\?xml.*\n/, "")
+  context "with isosts/isosts_tables.cals.10.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.10.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-            expect(generated).to be_analogous_with(cleaned_xml_string)
-          end
-        end
-      end
-    end
+  context "with isosts/isosts_tables.cals.11.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.11.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-    describe "namespaced XML (NISO JATS)" do
-      xml_files = Dir[fixtures_dir.join("niso-jats", "*.xml")]
+  context "with isosts/isosts_tables.cals.12.xml" do
+    let(:fixture) { file_fixture("isosts/isosts_tables.cals.12.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-      xml_files.each do |file_path|
-        context "with file #{Pathname.new(file_path).relative_path_from(fixtures_dir)}" do
-          let(:xml_string) { File.read(file_path) }
+  context "with native/docbook_example.xml" do
+    let(:fixture) { file_fixture("native/docbook_example.xml") }
+    it_behaves_like "lossless round-trip converter"
+  end
 
-          it "performs lossless round-trip conversion" do
-            parsed = Oasis::Etm::Table.from_xml(xml_string)
-            generated = parsed.to_xml(
-              pretty: true,
-              declaration: true,
-              encoding: "utf-8",
-            )
-
-            cleaned_xml_string = xml_string
-              .gsub(/^<\?xml.*\n/, "")
-
-            expect(generated).to be_analogous_with(cleaned_xml_string)
-          end
-        end
-      end
-    end
+  context "with niso-jats/niso-jats-table-wrap.xml" do
+    let(:fixture) { file_fixture("niso-jats/niso-jats-table-wrap.xml") }
+    it_behaves_like "lossless round-trip converter"
   end
 end

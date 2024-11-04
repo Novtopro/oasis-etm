@@ -12,6 +12,7 @@ module Oasis
 
       xml do
         root "row"
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         map_attribute "rowsep", to: :rowsep
         map_attribute "valign", to: :valign

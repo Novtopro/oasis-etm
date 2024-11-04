@@ -13,6 +13,7 @@ module Oasis
 
       xml do
         root "colspec"
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         map_attribute "colnum", to: :colnum
         map_attribute "colname", to: :colname

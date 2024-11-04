@@ -20,6 +20,7 @@ module Oasis
 
       xml do
         root "tgroup", ordered: true
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         # Attribute mappings
         map_attribute "cols", to: :cols

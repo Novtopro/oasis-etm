@@ -7,8 +7,21 @@ require:
 - rubocop-rake
 - rubocop-rspec
 
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 160
+
 AllCops:
   TargetRubyVersion: 3.0
+  SuggestExtensions: false
   NewCops: enable
   Exclude:
     - 'vendor/**/*'

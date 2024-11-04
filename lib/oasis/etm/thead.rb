@@ -11,6 +11,7 @@ module Oasis
 
       xml do
         root "thead"
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         map_attribute "valign", to: :valign
         map_element "row", to: :rows

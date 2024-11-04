@@ -15,6 +15,7 @@ module Oasis
 
       xml do
         root "table", ordered: true
+        namespace "http://docs.oasis-open.org/ns/oasis-exchange/table", "oasis"
 
         # Frame mappings
         map_attribute "frame", to: :frame
